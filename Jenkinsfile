@@ -20,6 +20,7 @@ pipeline {
             steps {
                 echo 'Building Application'
                 sh '''
+                    sudo apt install python3.14-venv
                      python3 -m venv venv
                     . venv/bin/activate
 
