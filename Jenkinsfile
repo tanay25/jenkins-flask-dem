@@ -17,20 +17,18 @@ pipeline {
         }
 
         stage('Build') {
-            steps {
-                echo 'Building Application'
-                sh '''
-                    sudo apt install python3.14-venv
-                     python3 -m venv venv
-                    . venv/bin/activate
+    steps {
+        sh '''
+            python3 --version
 
-                    pip install --upgrade pip
-                    pip install -r requirements.txt
+            python3 -m venv venv
+            . venv/bin/activate
 
-                    python app.py
-                '''
-            }
-        }
+            pip install --upgrade pip
+            pip install -r requirements.txt
+        '''
+    }
+}
 
         stage('Test') {
             steps {
